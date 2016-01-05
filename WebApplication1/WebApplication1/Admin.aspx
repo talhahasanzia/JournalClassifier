@@ -9,8 +9,15 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+
+
+             <asp:ListItem Selected="True" Value="Springer"> Springer </asp:ListItem>
+                  <asp:ListItem Value="IEEE"> IEEE</asp:ListItem>
+                  <asp:ListItem Value="ACM"> ACM </asp:ListItem>
+
+        </asp:DropDownList>
     
-        <asp:TextBox ID="LinkText" runat="server"></asp:TextBox>
         <asp:Button ID="RunButton" runat="server" Text="Button" OnClick="RunButton_Click" />
     
     </div>

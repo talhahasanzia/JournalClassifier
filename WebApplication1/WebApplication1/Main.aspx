@@ -56,10 +56,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="#post">Abstract</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">Keywords</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Results</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -76,11 +79,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile1.png" alt="">
+                    <img class="img-responsive"  src="img/profile1.png" alt="">
                     <div class="intro-text">
-                        <span class="name">Use Our Stats</span>
+                        <span class="name" id="post">Use Our Stats</span>
                         <hr class="star-light">
-                        <span class="skills">Find most suitable category and website for your journal</span>
+                        <span class="skills" >Find most suitable category and website for your journal</span>
                     </div>
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Abstract</label><asp:TextBox class="form-control" ID="TextBox1" runat="server">Post abstract here</asp:TextBox>
@@ -106,7 +109,7 @@
                     <asp:TextBox class="form-control" ID="TextBox2" runat="server">Keywords</asp:TextBox>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients.</p>
+                    <p>Suggested keywords will appear here</p>
                 </div>
                 
             </div>
@@ -167,7 +170,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contact Us</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -223,31 +226,21 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <h3>project by</h3>
+                        <p>University of Karachi,<br>Karachi, Pakistan</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                        <h3>Find on GIT</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="https://github.com/talhahasanzia/JournalClassifier" class="btn-social btn-outline"><i class="fa fa-fw fa-github"> Git</i></a>
+                                
                             </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
+                        <h3>About Theme</h3>
                         <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
                     </div>
                 </div>
@@ -257,7 +250,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                       
                     </div>
                 </div>
             </div>
