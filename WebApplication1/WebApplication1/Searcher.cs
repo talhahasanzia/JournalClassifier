@@ -7,6 +7,9 @@ namespace WebApplication1
 {
     public class Searcher
     {
+        // THIS CLASS DEFINES CATEGORIES
+        // RIGHT NOW ONLY 3 OF 1 WEBSITE
+
         public class Springer
         {
             public static int page;

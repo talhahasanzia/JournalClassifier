@@ -13,13 +13,17 @@ namespace WebApplication1
     {
 
         string source=Searcher.Springer.ComputerScience;
+        List<string> KeywordsList = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            OutputLabel.Text = "";
         }
 
         protected void RunButton_Click(object sender, EventArgs e)
         {
+
+
+            // SET CATEGORIES
 
             if (DropDownList1.SelectedValue == "Springer")
             {
@@ -43,56 +47,17 @@ namespace WebApplication1
                 }
 
             }
-            
-            FromSpringer(1);
-      
-        }
 
-        void FromSpringer(int depth)
-        {
-            Searcher.Springer.page = depth;
-            OutputLabel.Text = "";
-            var html = new HtmlDocument();
-            
-            html.LoadHtml(new WebClient().DownloadString(source)); // load a string
-            var root = html.DocumentNode;
+            List<string> keywords=JournalLinks.FromSpringer(source,1);
 
-
-            var p = root.Descendants()
-    .Where(n => n.GetAttributeValue("class", "").Equals("title"))
-  .ToArray();
-
-
-            var nodes = p.ToArray();
-
-
-            List<string> Links = new List<string>();
-
-            foreach (var node in nodes)
+            foreach (string word in keywords)
             {
-                try
-                {
-                    HtmlAttribute link = node.Attributes["href"];
-                   
-
-                    string temp = "link.springer.com" + link.Value;
-                    Links.Add(temp);
-                     OutputLabel.Text += "<br>"+temp;
-                }
-                catch (Exception ex)
-                {
-
-
-                }
-
-
+                OutputLabel.Text += "<br>"+word;
+            
             }
-          
-        
-        
-        
-        
         }
+
+  
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -97,6 +97,8 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JournalLinks.cs" />
+    <Compile Include="KeywordExtractor.cs" />
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
