@@ -20,8 +20,29 @@ namespace WebApplication1
 
         protected void RunButton_Click(object sender, EventArgs e)
         {
-          
-            
+
+            if (DropDownList1.SelectedValue == "Springer")
+            {
+                if (DropDownList2.SelectedValue == "CS")
+                {
+
+                    source = Searcher.Springer.ComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "MA")
+                {
+
+                    source = Searcher.Springer.Mathematics;
+
+                }
+                if (DropDownList2.SelectedValue == "EN")
+                {
+
+                    source = Searcher.Springer.Engineering;
+
+                }
+
+            }
             
             FromSpringer(1);
       
@@ -32,7 +53,7 @@ namespace WebApplication1
             Searcher.Springer.page = depth;
             OutputLabel.Text = "";
             var html = new HtmlDocument();
-            //html.Load(@"C:\HtmlDocs\test.html"); // load a file
+            
             html.LoadHtml(new WebClient().DownloadString(source)); // load a string
             var root = html.DocumentNode;
 
@@ -75,12 +96,17 @@ namespace WebApplication1
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedValue == "Springer")
-            { source = Searcher.Springer.ComputerScience; }
-            if (DropDownList1.SelectedValue == "IEEE")
-            { }
-            if (DropDownList1.SelectedValue == "ACM")
-            { }
+           
+            
+            
+            
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
+        
         }
     }
 }

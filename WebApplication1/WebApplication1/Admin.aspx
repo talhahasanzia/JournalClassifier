@@ -18,7 +18,16 @@
 
         </asp:DropDownList>
     
-        <asp:Button ID="RunButton" runat="server" Text="Button" OnClick="RunButton_Click" />
+        <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+
+             <asp:ListItem Selected="True" Value="CS"> Computer Science </asp:ListItem>
+                  <asp:ListItem Value="EN"> Engineering</asp:ListItem>
+                  <asp:ListItem Value="MA"> Mathematics </asp:ListItem>
+             
+
+        </asp:DropDownList>
+    
+        <asp:Button ID="Button1" runat="server" OnClick="RunButton_Click" Text="Button" />
     
     </div>
         <div>
