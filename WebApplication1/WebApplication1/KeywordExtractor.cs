@@ -21,7 +21,7 @@ namespace WebApplication1
             // create a root node
             var root = html.DocumentNode;
 
-            // get element having class =Keyword, which is juournal link node
+            // get element having class =Keyword, which is keyword node
             var p = root.Descendants().Where(n => n.GetAttributeValue("class", "").Equals("Keyword")).ToArray();
 
 
@@ -30,8 +30,8 @@ namespace WebApplication1
             foreach(var node in nodes)
             {
 
-                string tempKeyword = node.InnerHtml;
-                springerkeywords.Add(tempKeyword);
+                string tempKeyword = node.InnerHtml;   // get inner text i.e keyword
+                springerkeywords.Add(tempKeyword);     // add to list
                 System.Diagnostics.Debug.WriteLine(tempKeyword);
             }
             return springerkeywords;
