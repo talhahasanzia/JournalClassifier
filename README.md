@@ -6,5 +6,8 @@ The user will post an abstract of her/his research paper and this web app will s
 
 We will use HTML scraping to extract keywords from journals, also using html agility pack.The keywords will be collected from sites category wise, and tables will be created for each category in the database.When user submits a request these tables will be used to match these keywords.
 
-Project is a ASP Web Forms  App, with sample front end template from http://startbootstrap.com/template-overviews/freelancer/
+Project is a ASP Web Forms  App, with sample front end responsive template from: http://startbootstrap.com/template-overviews/freelancer/
+
+
+
 Project itself has no copyrights.
