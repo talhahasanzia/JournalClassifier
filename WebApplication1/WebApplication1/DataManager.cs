@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 using System.Linq;
 using System.Web;
 
@@ -10,9 +11,9 @@ namespace WebApplication1
     public class DataManager
     {
         static DataSet SQLdset;
-        static SqlDataAdapter SQLAdp;
-        static SqlConnection c;
-        static SqlConnection SQLCon;
+        static SqlCeDataAdapter SQLAdp;
+     
+        static SqlCeConnection SQLCon;
             
             public DataManager()
         {
@@ -26,9 +27,10 @@ namespace WebApplication1
         }
             public static List<string> GetData(string tableName)
             {
-                SQLCon = new SqlConnection();
+                SQLCon = new SqlCeConnection();
 
-                string ConString = @"Data Source=" + "F:\\Github\\JournalClassifier\\WebApplication1\\WebApplication1\\App_Data\\KeywordsDB.sdf" + ";Integrated Security=True;Connect Timeout=30";
+                string ConString = @"Data Source=|DataDirectory|KeywordsDB.sdf;";
+                    //@"Data Source=" + "F:\\Github\\JournalClassifier\\WebApplication1\\WebApplication1\\App_Data\\KeywordsDB.sdf;";
                 SQLCon.ConnectionString = ConString; 
 
                 List<string> WordList = new List<string>();
@@ -36,9 +38,9 @@ namespace WebApplication1
 
                 string Comm = "SELECT * FROM "+tableName;
 
-                SQLAdp = new SqlDataAdapter(Comm, SQLCon);
+                SQLAdp = new SqlCeDataAdapter(Comm, SQLCon);
 
-                SQLAdp.SelectCommand = new SqlCommand(Comm, SQLCon);
+                SQLAdp.SelectCommand = new SqlCeCommand(Comm, SQLCon);
 
                 SQLdset = new DataSet();
 
@@ -56,7 +58,7 @@ namespace WebApplication1
                    
                     ;
 
-                    for (int i = 0; i < j - 1; i++)
+                    for (int i = 0; i < j ; i++)
                     {
 
                         string temp = SQLdset.Tables[tableName].Rows[i]["Keywords"].ToString();
@@ -68,38 +70,47 @@ namespace WebApplication1
             }
             public static  void SetData(string tableName, List<string> keywordsList)
             {
-                SQLCon = new SqlConnection();
+                SQLCon = new SqlCeConnection();
 
                 string ConString = @"Data Source=|DataDirectory|KeywordsDB.sdf;";
+                
                 SQLCon.ConnectionString = ConString; 
-                // from db to array
+  
+
+                
 
                 if (SQLCon != null)
                 {
-                  //  SQLCon.Open();
+                    SQLCon.Open();
 
 
                     foreach (string word in keywordsList)
                     {
-                        string sql = "insert into " + tableName + "(Keywords) values(" + word.ToLower() + ")";
+                        string sql = "INSERT INTO " + tableName + "(Keywords) VALUES(\'" + word.ToLower() + "\');";
+                        SqlCeCommand comm = new SqlCeCommand();
+                        comm.CommandText = sql;                        
+                        comm.CommandType = CommandType.Text;
+                        comm.Connection = SQLCon;
+                        
                         try
                         {
-                            SQLAdp.InsertCommand = new SqlCommand(sql, SQLCon);
-
+                            SQLAdp.InsertCommand = comm;
+                            
+                            
                             SQLAdp.InsertCommand.ExecuteNonQuery();
 
                         }
                         catch (Exception ex)
                         {
-                            
+                            System.Diagnostics.Debug.WriteLine(ex.Message);
                         }
                         finally
                         {
-                            SQLCon.Close();
+                           
                         
                         }
                     }
-                    
+                    SQLCon.Close();
                 }
 
                 

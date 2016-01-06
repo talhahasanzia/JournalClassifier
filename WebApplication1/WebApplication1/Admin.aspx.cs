@@ -11,9 +11,9 @@ namespace WebApplication1
 {
     public partial class Admin : System.Web.UI.Page
     {
-        List<string> keywords=new List<string>();
-        string source=Searcher.Springer.ComputerScience;
-        List<string> KeywordsList = new List<string>();
+        static List<string> keywords=new List<string>();
+       static string source=Searcher.Springer.ComputerScience;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             OutputLabel.Text = "";
@@ -21,32 +21,11 @@ namespace WebApplication1
 
         protected void RunButton_Click(object sender, EventArgs e)
         {
-
+            keywords = new List<string>();
 
             // SET CATEGORIES
 
-            if (DropDownList1.SelectedValue == "Springer")
-            {
-                if (DropDownList2.SelectedValue == "CS")
-                {
-
-                    source = Searcher.Springer.ComputerScience;
-
-                }
-                if (DropDownList2.SelectedValue == "MA")
-                {
-
-                    source = Searcher.Springer.Mathematics;
-
-                }
-                if (DropDownList2.SelectedValue == "EN")
-                {
-
-                    source = Searcher.Springer.Engineering;
-
-                }
-
-            }
+            setValues();
 
             keywords=JournalLinks.FromSpringer(source,1);
 
@@ -59,6 +38,8 @@ namespace WebApplication1
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
+
+            setValues();
 
             if (source ==  Searcher.Springer.ComputerScience)
             {
@@ -82,24 +63,26 @@ namespace WebApplication1
         }
         protected void ShowButton_Click(object sender, EventArgs e)
         {
+            setValues();
+           
             List<string> tempList=new List<string>();
             if (source == Searcher.Springer.ComputerScience)
             {
 
-               tempList  = DataManager.GetData("Springer_ComputerScience");
+               tempList  = DataManager.GetData(TableNames.Springer.ComputerScience);
 
 
             }
             if (source == Searcher.Springer.Mathematics)
             {
 
-                tempList = DataManager.GetData("Springer_Mathematics");
+                tempList = DataManager.GetData(TableNames.Springer.Mathematics);
 
             }
             if (source == Searcher.Springer.Engineering)
             {
 
-                tempList = DataManager.GetData("Springer_Engineering");
+                tempList = DataManager.GetData(TableNames.Springer.Engineering);
 
             }
             foreach (string word in tempList)
@@ -109,6 +92,81 @@ namespace WebApplication1
                 OutputLabel.Text += "<br>" + word;
             
             }
+        }
+
+
+        void setValues()
+        {
+
+            if (DropDownList1.SelectedValue == "Springer")
+            {
+                if (DropDownList2.SelectedValue == "CS")
+                {
+
+                    source = Searcher.Springer.ComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "MA")
+                {
+
+                    source = Searcher.Springer.Mathematics;
+
+                }
+                if (DropDownList2.SelectedValue == "EN")
+                {
+
+                    source = Searcher.Springer.Engineering;
+
+                }
+
+            }
+            if (DropDownList1.SelectedValue == "IEEE")
+            {
+                if (DropDownList2.SelectedValue == "CS")
+                {
+
+                    source = Searcher.IEEE.ComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "MA")
+                {
+
+                    source = Searcher.IEEE.Mathematics;
+
+                }
+                if (DropDownList2.SelectedValue == "EN")
+                {
+
+                    source = Searcher.IEEE.Engineering;
+
+                }
+
+            }
+            if (DropDownList1.SelectedValue == "ACM")
+            {
+                if (DropDownList2.SelectedValue == "CS")
+                {
+
+                    source = Searcher.ACM.ComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "MA")
+                {
+
+                    source = Searcher.ACM.Mathematics;
+
+                }
+                if (DropDownList2.SelectedValue == "EN")
+                {
+
+                    source = Searcher.ACM.Engineering;
+
+                }
+
+            }
+
+        
+        
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
