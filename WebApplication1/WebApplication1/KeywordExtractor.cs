@@ -36,5 +36,25 @@ namespace WebApplication1
             }
             return springerkeywords;
         }
+      
+        
+        public static List<string> ieee(string uri)
+       {
+           List<string> springerkeywords = new List<string>();
+
+          
+           return springerkeywords;
+       }
+       
+        
+        public static List<string> acm(string uri)
+       {
+           List<string> springerkeywords = new List<string>();
+
+          
+           return springerkeywords;
+       }
+
+
     }
 }

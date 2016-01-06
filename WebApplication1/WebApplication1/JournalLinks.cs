@@ -83,5 +83,21 @@ namespace WebApplication1
             return FinalKeywords;
 
         }
+
+
+       public static List<string> FromIEEE(string source, int depth)
+       {
+
+           return FinalKeywords;
+       }
+
+
+       public static List<string> FromACM(string source, int depth)
+       {
+
+           return FinalKeywords;
+       }
+
+
     }
 }

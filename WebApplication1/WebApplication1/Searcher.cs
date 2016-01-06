@@ -19,6 +19,24 @@ namespace WebApplication1
 
         
         }
+        public class IEEE
+        {
+            public static int page;
+            public static string ComputerScience ;
+            public static string Engineering ;
+            public static string Mathematics ;
+
+
+        }
+        public class ACM
+        {
+            public static int page;
+            public static string ComputerScience ;
+            public static string Engineering ;
+            public static string Mathematics ;
+
+
+        }
 
 
     }
