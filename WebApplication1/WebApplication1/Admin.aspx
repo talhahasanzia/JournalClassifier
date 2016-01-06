@@ -8,7 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+        <div style="text-align:center"><h2> Manage Data</h2></div>
+    <div style="text-align:center">
+       
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
 
 
@@ -27,12 +29,19 @@
 
         </asp:DropDownList>
     
-        <asp:Button ID="Button1" runat="server" OnClick="RunButton_Click" Text="Button" />
+        <asp:Button ID="Button1" runat="server" OnClick="RunButton_Click" Text="Run Search" />
+        <asp:Button ID="Button3" runat="server" OnClick="ShowButton_Click" Text="Show Data" />
+         <asp:Button ID="Button2" runat="server" OnClick="UpdateButton_Click" Text="Update Data" />
     
     </div>
-        <div>
+        <div style="text-align:center; margin-top:15px; font-family:Calibri">
 
-            <asp:Label ID="OutputLabel" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Keywords"></asp:Label>
+
+            </div>
+        <div >
+
+            <asp:Label ID="OutputLabel" runat="server" Text="Label" Font-Names="Consolas" Font-Size="Small"></asp:Label>
 
             </div>
     </form>
