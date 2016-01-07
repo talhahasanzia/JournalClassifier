@@ -64,9 +64,7 @@
                     <li class="page-scroll">
                         <a href="#portfolio">Results</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -109,13 +107,16 @@
                     <asp:TextBox class="form-control" ID="TextBox2" runat="server">Keywords</asp:TextBox>
                 </div>
                 <div class="col-lg-4">
-                    <p>Suggested keywords will appear here</p>
+                    <p>Enter keywords that best match your abstract.</p>
                 </div>
                 
             </div>
+             
         </div>
     </section>
-
+        <div class="form-group col-xs-12" style="text-align:center; margin-top:10px; font-family:Verdana">
+            <asp:Button ID="Button1" runat="server" Text="Check Results" BackColor="#18BC9C" BorderColor="#18BC9C" ForeColor="White" Height="65px" OnClick="LinkButton1_Click" Width="183px" />
+                            </div>
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container">
@@ -126,35 +127,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
+                <div class="col-sm-4 portfolio-item"  style="background-color:blue; text-align:center; font-family:Verdana; margin:10px,10px,10px,10px; padding:5px,5px,5px,5px;" >
+                   <asp:Label ID="Label1" runat="server"  Text="Springer" Font-Size="Large" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="SCS" runat="server"  Text="Springer" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="SMA" runat="server"  Text="Springer" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="SEN" runat="server"  Text="Springer" Font-Size="Medium" ForeColor="White"></asp:Label>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
+                
+                <div class="col-sm-4 portfolio-item" style="background-color:blueviolet; text-align:center; font-family:Verdana;  margin:10px,10px,10px,10px; padding:5px,5px,5px,5px;">
+                   <asp:Label ID="Label2" runat="server"  Text="IEEE" Font-Size="Large" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label3" runat="server"  Text="IEEE" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label4" runat="server"  Text="IEEE" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label5" runat="server"  Text="IEEE" Font-Size="Medium" ForeColor="White"></asp:Label>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
+                <div class="col-sm-4 portfolio-item" style="background-color:darkcyan; text-align:center; font-family:Verdana;  margin:10px,10px,10px,10px; padding:5px,5px,5px,5px;">
+                   <asp:Label ID="Label6" runat="server"  Text="ACM" Font-Size="Large" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label7" runat="server"  Text="ACM" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label8" runat="server"  Text="ACM" Font-Size="Medium" ForeColor="White"></asp:Label><br>
+                    <asp:Label ID="Label9" runat="server"  Text="ACM" Font-Size="Medium" ForeColor="White"></asp:Label>
                 </div>
                
                
@@ -166,7 +156,7 @@
    
 
     <!-- Contact Section -->
-    <section id="contact">
+   <%-- <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -218,7 +208,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--%>
 
     <!-- Footer -->
     <footer class="text-center">

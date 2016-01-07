@@ -13,5 +13,15 @@ namespace WebApplication1
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            List<string> keywords = TextBox2.Text.Split(',').ToList();
+
+            SCS.Text = " Computer Science: " + Comparator.matchSpringerCS(keywords.ToArray()) + "%";
+            SEN.Text = " Engineering: " + Comparator.matchSpringerEN(keywords.ToArray()) + "%";
+            SMA.Text = " Mathematics: " + Comparator.matchSpringerMA(keywords.ToArray()) + "%";
+
+        }
     }
 }

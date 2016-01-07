@@ -99,6 +99,7 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Comparator.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="JournalLinks.cs" />
     <Compile Include="KeywordExtractor.cs" />
