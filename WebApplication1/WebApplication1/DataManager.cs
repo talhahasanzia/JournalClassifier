@@ -86,7 +86,7 @@ namespace WebApplication1
 
                     foreach (string word in keywordsList)
                     {
-                        string sql = "INSERT INTO " + tableName + "(Keywords) VALUES(\'" + word.ToLower() + "\');";
+                        string sql = "INSERT INTO " + tableName + "(Keywords) VALUES('" + word.ToLower() + "');";
                         SqlCeCommand comm = new SqlCeCommand();
                         comm.CommandText = sql;                        
                         comm.CommandType = CommandType.Text;
@@ -94,10 +94,10 @@ namespace WebApplication1
                         
                         try
                         {
-                            SQLAdp.InsertCommand = comm;
-                            
-                            
-                            SQLAdp.InsertCommand.ExecuteNonQuery();
+
+
+
+                            comm.ExecuteNonQuery();
 
                         }
                         catch (Exception ex)

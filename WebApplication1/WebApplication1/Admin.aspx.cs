@@ -59,6 +59,7 @@ namespace WebApplication1
                 DataManager.SetData("Springer_Engineering", keywords);
 
             }
+            OutputLabel.Text = "<br> Click 'Show Data' to see changes";
         
         }
         protected void ShowButton_Click(object sender, EventArgs e)

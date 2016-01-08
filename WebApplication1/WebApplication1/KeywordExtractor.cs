@@ -14,7 +14,7 @@ namespace WebApplication1
        public static List<string> springer(string uri)
         {
             List<string> springerkeywords = new List<string>();
-
+            char[] trimmer = { ' ' };
             var html = new HtmlDocument();
 
             html.LoadHtml(new WebClient().DownloadString(uri)); // load a string web address
@@ -30,7 +30,12 @@ namespace WebApplication1
             foreach(var node in nodes)
             {
 
-                string tempKeyword = node.InnerHtml;   // get inner text i.e keyword
+                string tempKeyword = node.InnerHtml;
+                // get inner text i.e keyword
+
+                tempKeyword = tempKeyword.TrimEnd(trimmer);
+                tempKeyword = tempKeyword.TrimStart(trimmer);
+                
                 springerkeywords.Add(tempKeyword);     // add to list
                 System.Diagnostics.Debug.WriteLine(tempKeyword);
             }

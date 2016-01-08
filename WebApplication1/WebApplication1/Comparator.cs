@@ -15,14 +15,15 @@ namespace WebApplication1
         public Comparator()
         {
 
-             savedDataFromSpringerCS = DataManager.GetData(TableNames.Springer.ComputerScience);
-            savedDataFromSpringerMA = DataManager.GetData(TableNames.Springer.Mathematics);
-            savedDataFromSpringerEN = DataManager.GetData(TableNames.Springer.Engineering);
+             
+           
+            
         
         }
 
         public static float matchSpringerCS(string[] keywords)
         {
+            savedDataFromSpringerCS = DataManager.GetData(TableNames.Springer.ComputerScience);
             float perc=0;
 
             int totalKeywords = keywords.Length;
@@ -36,12 +37,13 @@ namespace WebApplication1
             
             }
 
-            perc = (matched / totalKeywords) * 100;
+            perc = ((float)matched / (float)totalKeywords) * 100f;
             return perc;
         }
         
         public static float matchSpringerMA(string[] keywords)
         {
+            savedDataFromSpringerMA = DataManager.GetData(TableNames.Springer.Mathematics);
             float perc=0;
 
             int totalKeywords = keywords.Length;
@@ -55,13 +57,14 @@ namespace WebApplication1
 
             }
 
-            perc = (matched / totalKeywords) * 100;
+            perc = ((float)matched / (float)totalKeywords) * 100f;
 
             return perc;
         }
        
         public static float matchSpringerEN(string[] keywords)
         {
+            savedDataFromSpringerEN = DataManager.GetData(TableNames.Springer.Engineering);
             float perc=0;
 
             int totalKeywords = keywords.Length;
@@ -75,7 +78,7 @@ namespace WebApplication1
 
             }
 
-            perc = (matched / totalKeywords) * 100;
+            perc = ((float)matched / (float)totalKeywords) * 100f;
 
 
             return perc;

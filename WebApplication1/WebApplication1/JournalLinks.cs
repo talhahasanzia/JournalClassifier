@@ -14,6 +14,7 @@ namespace WebApplication1
 
        public static List<string> FromSpringer(string source,int depth)
         {
+            FinalKeywords = new List<string>();
            // how many pages from search results
             Searcher.Springer.page = depth;
            

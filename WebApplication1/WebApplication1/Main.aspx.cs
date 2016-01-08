@@ -16,12 +16,30 @@ namespace WebApplication1
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+           char[] trimmer={' '};
+            
             List<string> keywords = TextBox2.Text.Split(',').ToList();
 
-            SCS.Text = " Computer Science: " + Comparator.matchSpringerCS(keywords.ToArray()) + "%";
-            SEN.Text = " Engineering: " + Comparator.matchSpringerEN(keywords.ToArray()) + "%";
-            SMA.Text = " Mathematics: " + Comparator.matchSpringerMA(keywords.ToArray()) + "%";
+            List<string> filteredKeywords = new List<string>();
 
+            foreach (string word in keywords)
+            {
+
+                string temp = word.ToLower();
+                temp = temp.TrimEnd(trimmer);
+                temp = temp.TrimStart(trimmer);
+                filteredKeywords.Add(temp);
+            
+            
+            }
+            float CSMatch = Comparator.matchSpringerCS(filteredKeywords.ToArray());
+            float ENMatch = Comparator.matchSpringerEN(filteredKeywords.ToArray());
+            float MAMatch = Comparator.matchSpringerMA(filteredKeywords.ToArray());
+
+            SCS.Text = " Computer Science: " +CSMatch  + "%";
+            SEN.Text = " Engineering: " + ENMatch + "%";
+            SMA.Text = " Mathematics: " + MAMatch + "%";
+            ; ;
         }
     }
 }
