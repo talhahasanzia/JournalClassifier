@@ -74,47 +74,105 @@ namespace WebApplication1
 
                 string ConString = @"Data Source=|DataDirectory|KeywordsDB.sdf;";
                 
-                SQLCon.ConnectionString = ConString; 
-  
+                SQLCon.ConnectionString = ConString;
 
-                
+
+
 
                 if (SQLCon != null)
                 {
                     SQLCon.Open();
 
-
-                    foreach (string word in keywordsList)
+                    if (DeleteOnUpdate(tableName))
                     {
-                        string sql = "INSERT INTO " + tableName + "(Keywords) VALUES('" + word.ToLower() + "');";
+                        string sql;
+
+
                         SqlCeCommand comm = new SqlCeCommand();
-                        comm.CommandText = sql;                        
+
                         comm.CommandType = CommandType.Text;
                         comm.Connection = SQLCon;
-                        
-                        try
+
+
+
+                        foreach (string word in keywordsList)
                         {
+                            sql = "INSERT INTO " + tableName + "(Keywords) VALUES('" + word.ToLower() + "');";
+                            comm.CommandText = sql;
+
+                            try
+                            {
 
 
 
-                            comm.ExecuteNonQuery();
+                                comm.ExecuteNonQuery();
 
+                            }
+                            catch (Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine(ex.Message);
+                            }
+                            finally
+                            {
+
+
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            System.Diagnostics.Debug.WriteLine(ex.Message);
-                        }
-                        finally
-                        {
-                           
-                        
-                        }
+                        SQLCon.Close();
                     }
-                    SQLCon.Close();
                 }
+               
 
                 
             
+            }
+
+
+            static bool DeleteOnUpdate(string tableName)
+            {
+
+                 SQLCon = new SqlCeConnection();
+
+                string ConString = @"Data Source=|DataDirectory|KeywordsDB.sdf;";
+                
+                SQLCon.ConnectionString = ConString;
+
+                bool status = false;
+
+
+                if (SQLCon != null)
+                {
+                    SQLCon.Open();
+                    string sql;
+
+                     sql = "DELETE " + tableName;
+
+                    SqlCeCommand comm = new SqlCeCommand();
+                    comm.CommandText = sql;
+                    comm.CommandType = CommandType.Text;
+                    comm.Connection = SQLCon;
+
+
+                    try
+                    {
+
+
+
+                        comm.ExecuteNonQuery();
+                        status = true;
+                       
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        status = false;
+                       
+                    }
+                }
+                return status;
+
+               
             }
     }
 }

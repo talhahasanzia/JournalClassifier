@@ -15,8 +15,14 @@ namespace WebApplication1
        public static List<string> FromSpringer(string source,int depth)
         {
             FinalKeywords = new List<string>();
+
+            int currentPage ;
+
+            for (currentPage = 1; currentPage <= depth; currentPage++ )
+            {
+                
            // how many pages from search results
-            Searcher.Springer.page = depth;
+            Searcher.Springer.page = currentPage;
            
             var html = new HtmlDocument();
 
@@ -79,7 +85,7 @@ namespace WebApplication1
 
             // do for each journal (link)
             }
-
+       }
 
             return FinalKeywords;
 

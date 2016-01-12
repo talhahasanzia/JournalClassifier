@@ -27,7 +27,7 @@ namespace WebApplication1
 
             setValues();
 
-            keywords=JournalLinks.FromSpringer(source,1);
+            keywords=JournalLinks.FromSpringer(source,GetDepth());
 
             foreach (string word in keywords)
             {
@@ -36,41 +36,137 @@ namespace WebApplication1
             }
         }
 
+       
+
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
 
             setValues();
 
-            if (source ==  Searcher.Springer.ComputerScience)
+            UpdateData();
+
+            OutputLabel.Text = "<br> Click 'Show Data' to see changes";
+        
+        }
+
+       
+        protected void ShowButton_Click(object sender, EventArgs e)
+        {
+            setValues();
+           
+            List<string> tempList=GetData();
+            
+            foreach (string word in tempList)
             {
 
-                DataManager.SetData("Springer_ComputerScience", keywords);
+
+                OutputLabel.Text += "<br>" + word;
             
+            }
+        }
+
+        int GetDepth()
+        {
+            int d = 1;
+
+
+            if (DropDownList3.SelectedValue == "x1")
+            {
+
+                d = 1;
+
+            }
+            else if (DropDownList3.SelectedValue == "x2")
+            {
+
+                d = 2;
+
+            }
+            else if (DropDownList3.SelectedValue == "x3")
+            {
+
+                d = 3;
+
+            }
+            else
+            {
+
+                d = 1; ;
+            }
+
+            return d;
+        }
+
+
+        void UpdateData()
+        {
+
+            if (source == Searcher.Springer.ComputerScience)
+            {
+
+                DataManager.SetData(TableNames.Springer.ComputerScience, keywords);
+
             }
             if (source == Searcher.Springer.Mathematics)
             {
 
-                DataManager.SetData("Springer_Mathematics", keywords);
+                DataManager.SetData(TableNames.Springer.Mathematics, keywords);
 
             }
             if (source == Searcher.Springer.Engineering)
             {
 
-                DataManager.SetData("Springer_Engineering", keywords);
+                DataManager.SetData(TableNames.Springer.Engineering, keywords);
 
             }
-            OutputLabel.Text = "<br> Click 'Show Data' to see changes";
-        
+            if (source == Searcher.Springer.AI)
+            {
+
+                DataManager.SetData(TableNames.Springer.AI, keywords);
+
+            }
+            if (source == Searcher.Springer.Algebra)
+            {
+
+                DataManager.SetData(TableNames.Springer.Algebra, keywords);
+
+            }
+            if (source == Searcher.Springer.ComputerNetworks)
+            {
+
+                DataManager.SetData(TableNames.Springer.ComputerNetworks, keywords);
+
+            }
+            if (source == Searcher.Springer.InformationSystemsAndApplications)
+            {
+
+                DataManager.SetData(TableNames.Springer.InformationSystems, keywords);
+
+            }
+            if (source == Searcher.Springer.MathematicalAndComputationalPhysics)
+            {
+
+                DataManager.SetData(TableNames.Springer.MathematicalAndComputationalPhysics, keywords);
+
+            }
+            if (source == Searcher.Springer.TheoreticalComputerScience)
+            {
+
+                DataManager.SetData(TableNames.Springer.TheoriticalComputerScience, keywords);
+
+            }
+
+
         }
-        protected void ShowButton_Click(object sender, EventArgs e)
+
+        List<string> GetData()
         {
-            setValues();
-           
-            List<string> tempList=new List<string>();
+
+            List<string> tempList = new List<string>();
             if (source == Searcher.Springer.ComputerScience)
             {
 
-               tempList  = DataManager.GetData(TableNames.Springer.ComputerScience);
+                tempList = DataManager.GetData(TableNames.Springer.ComputerScience);
 
 
             }
@@ -86,13 +182,44 @@ namespace WebApplication1
                 tempList = DataManager.GetData(TableNames.Springer.Engineering);
 
             }
-            foreach (string word in tempList)
+            if (source == Searcher.Springer.AI)
             {
 
+                tempList = DataManager.GetData(TableNames.Springer.AI);
 
-                OutputLabel.Text += "<br>" + word;
-            
             }
+            if (source == Searcher.Springer.Algebra)
+            {
+
+                tempList = DataManager.GetData(TableNames.Springer.Algebra);
+
+            }
+            if (source == Searcher.Springer.ComputerNetworks)
+            {
+
+                tempList = DataManager.GetData(TableNames.Springer.ComputerNetworks);
+
+            }
+            if (source == Searcher.Springer.InformationSystemsAndApplications)
+            {
+
+                tempList = DataManager.GetData(TableNames.Springer.InformationSystems);
+
+            }
+            if (source == Searcher.Springer.MathematicalAndComputationalPhysics)
+            {
+
+                tempList = DataManager.GetData(TableNames.Springer.MathematicalAndComputationalPhysics);
+
+            }
+            if (source == Searcher.Springer.TheoreticalComputerScience)
+            {
+
+                tempList = DataManager.GetData(TableNames.Springer.TheoriticalComputerScience);
+
+            }
+            return tempList;
+        
         }
 
 
@@ -113,10 +240,40 @@ namespace WebApplication1
                     source = Searcher.Springer.Mathematics;
 
                 }
-                if (DropDownList2.SelectedValue == "EN")
+                if (DropDownList2.SelectedValue == "AI")
                 {
 
-                    source = Searcher.Springer.Engineering;
+                    source = Searcher.Springer.AI;
+
+                }
+                if (DropDownList2.SelectedValue == "TC")
+                {
+
+                    source = Searcher.Springer.TheoreticalComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "CN")
+                {
+
+                    source = Searcher.Springer.ComputerNetworks;
+
+                }
+                if (DropDownList2.SelectedValue == "AL")
+                {
+
+                    source = Searcher.Springer.Algebra;
+
+                }
+                if (DropDownList2.SelectedValue == "IS")
+                {
+
+                    source = Searcher.Springer.InformationSystemsAndApplications;
+
+                }
+                if (DropDownList2.SelectedValue == "CP")
+                {
+
+                    source = Searcher.Springer.MathematicalAndComputationalPhysics;
 
                 }
 

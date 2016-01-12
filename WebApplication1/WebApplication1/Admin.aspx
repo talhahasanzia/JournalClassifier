@@ -5,31 +5,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+
+
+
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="text-align:center"><h2> Manage Data</h2></div>
+        <div style="text-align:center; font-family:Calibri"><h2> Manage Data</h2></div>
     <div style="text-align:center">
+    
        
+        
+        
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
 
-
-             <asp:ListItem Selected="True" Value="Springer"> Springer </asp:ListItem>
+             <asp:ListItem Selected="True" Value="abc"> Website</asp:ListItem>
+             <asp:ListItem  Value="Springer"> Springer </asp:ListItem>
                   <asp:ListItem Value="IEEE"> IEEE</asp:ListItem>
                   <asp:ListItem Value="ACM"> ACM </asp:ListItem>
 
         </asp:DropDownList>
     
         <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-
-             <asp:ListItem Selected="True" Value="CS"> Computer Science </asp:ListItem>
+             <asp:ListItem Selected="True" Value="abc"> Category</asp:ListItem>
+             <asp:ListItem  Value="CS"> Computer Science </asp:ListItem>
                   <asp:ListItem Value="EN"> Engineering</asp:ListItem>
                   <asp:ListItem Value="MA"> Mathematics </asp:ListItem>
+             <asp:ListItem Value="AI"> Artificial Intelligence </asp:ListItem>
+             <asp:ListItem Value="TC">Theoritical Computer Science </asp:ListItem>
+             <asp:ListItem Value="CN"> Computer Networks </asp:ListItem>
+             <asp:ListItem Value="IS"> Information Systems </asp:ListItem>
+             <asp:ListItem Value="AL"> Algebra </asp:ListItem>
+             <asp:ListItem Value="CP"> Computational Physics </asp:ListItem>
              
 
         </asp:DropDownList>
-    
-        <asp:Button ID="Button1" runat="server" OnClick="RunButton_Click" Text="Run Search" />
+    <asp:DropDownList ID="DropDownList3" runat="server" >
+         <asp:ListItem Selected="True" Value="abc"> Search Depth</asp:ListItem>
+             <asp:ListItem  Value="x1"> 1x </asp:ListItem>
+                  <asp:ListItem Value="x2"> 2x</asp:ListItem>
+                  <asp:ListItem Value="x3"> 3x </asp:ListItem>
+             
+             
+
+        </asp:DropDownList>
+        <asp:Button ID="Button1"   runat="server" OnClick="RunButton_Click" Text="Run Search" />
         <asp:Button ID="Button3" runat="server" OnClick="ShowButton_Click" Text="Show Data" />
          <asp:Button ID="Button2" runat="server" OnClick="UpdateButton_Click" Text="Update Data" />
     
@@ -44,6 +65,9 @@
             <asp:Label ID="OutputLabel" runat="server" Text="Label" Font-Names="Consolas" Font-Size="Small"></asp:Label>
 
             </div>
-    </form>
+      
+        
+
+       </form>
 </body>
 </html>

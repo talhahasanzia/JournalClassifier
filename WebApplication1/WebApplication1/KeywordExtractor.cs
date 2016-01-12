@@ -15,6 +15,7 @@ namespace WebApplication1
         {
             List<string> springerkeywords = new List<string>();
             char[] trimmer = { ' ' };
+            char[] allTrimmer = { '\\', '(',')','/','<','>','=','"', };
             var html = new HtmlDocument();
 
             html.LoadHtml(new WebClient().DownloadString(uri)); // load a string web address
@@ -35,6 +36,7 @@ namespace WebApplication1
 
                 tempKeyword = tempKeyword.TrimEnd(trimmer);
                 tempKeyword = tempKeyword.TrimStart(trimmer);
+                tempKeyword = tempKeyword.Trim(allTrimmer);
                 
                 springerkeywords.Add(tempKeyword);     // add to list
                 System.Diagnostics.Debug.WriteLine(tempKeyword);
@@ -55,7 +57,7 @@ namespace WebApplication1
         public static List<string> acm(string uri)
        {
            List<string> springerkeywords = new List<string>();
-
+           
           
            return springerkeywords;
        }
