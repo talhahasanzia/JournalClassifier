@@ -47,10 +47,60 @@ namespace WebApplication1
         
         public static List<string> ieee(string uri)
        {
-           List<string> springerkeywords = new List<string>();
+           int counter = 0;
+           List<string> IEEEKeywords = new List<string>();
+           string inspeccontrolledindex = "<h2>INSPEC: CONTROLLED INDEXING</h2>";
+           string inspecnoncontrolled = "<h2>INSPEC: NON CONTROLLED INDEXING</h2>";
+           string authorkeywords = "<h2>AUTHOR KEYWORDS</h2>";
+           string ieeeterms = "<h2>IEEE TERMS</h2>";
+           string end = "</ul>";
+           string datakeyword = "data-keyword=";
+           bool printNow = false;
+           string path = HttpContext.Current.Server.MapPath("~/App_Data/htmlFile.txt");
+           Stream writer = new FileStream(path, FileMode.Create);
+           writer.Close();
 
-          
-           return springerkeywords;
+           using (WebClient client = new WebClient())
+            {
+                    
+          //  string link = "http://ieeexplore.ieee.org/xpl/abstractKeywords.jsp?arnumber=7164282&action=search&sortType=&rowsPerPage=&searchField=Search_All&matchBoolean=true&queryText=(Computer%20Science)&refinements=4294967269&refinements=4291944245";
+           client.DownloadFile(uri, path);
+
+           foreach (var linee in File.ReadLines(path))
+           {
+            if (printNow)
+            {
+            if (linee.Contains(end))
+            {
+             printNow = false;
+             counter++;
+                }
+            }
+            if (printNow)
+             {
+             if (linee.Contains(datakeyword))
+              {
+                var firstIndex = linee.IndexOf('"');
+                var lastIndex = linee.LastIndexOf('"');
+                var c = linee.Substring(firstIndex, lastIndex - firstIndex - 24);
+
+                IEEEKeywords.Add(c.Trim('"'));
+               System.Diagnostics.Debug.WriteLine(c.Trim('"'));
+                      }
+
+                        }
+        if ((linee.Contains(inspeccontrolledindex) || linee.Contains(inspecnoncontrolled) || linee.Contains(authorkeywords) || linee.Contains(ieeeterms)) && (counter == 0 || counter == 1 || counter == 2 || counter == 3 || counter == 4))
+                  printNow = true;
+
+
+                    }
+
+                }
+
+
+
+            
+            return IEEEKeywords;
        }
        
         
