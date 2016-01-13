@@ -22,23 +22,19 @@ namespace WebApplication1
             public static string MathematicalAndComputationalPhysics = "Springer_MCP";
         
         }
-        public class IEEE
-        {
-
-            public static    string ComputerScience = "IEEE_ComputerScience";
-            public static    string Engineering = "IEEE_Engineering";
-            public static    string Mathematics = "IEEE_Mathematics";
-
-
-        }
+        
         public class ACM
         {
 
-            public static    string ComputerScience = "ACM_ComputerScience";
-            public static    string Engineering = "ACM_Engineering";
-            public static    string Mathematics = "ACM_Mathematics";
-
-
+            public static    string AI = "ACM_AI";
+            public static    string ComputerGraphics = "ACM_CG";
+            public static    string ComputerNetworks = "ACM_CN";
+            public static string ComputerVision = "ACM_CV";
+            public static string DistributedDatabase = "ACM_DD";
+            public static string ParallelComputing = "ACM_PC";
+            public static string SoftwareEngineering = "ACM_SE";
+            public static string TheoryOfComputerScience = "ACM_TCS";
+            public static string CloudComputing = "ACM_CC";
         }
     }
 }

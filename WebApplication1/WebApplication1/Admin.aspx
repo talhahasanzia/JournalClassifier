@@ -18,7 +18,7 @@
        
         
         
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
 
              <asp:ListItem Selected="True" Value="abc"> Website</asp:ListItem>
              <asp:ListItem  Value="Springer"> Springer </asp:ListItem>
@@ -27,17 +27,8 @@
 
         </asp:DropDownList>
     
-        <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-             <asp:ListItem Selected="True" Value="abc"> Category</asp:ListItem>
-             <asp:ListItem  Value="CS"> Computer Science </asp:ListItem>
-                  <asp:ListItem Value="EN"> Engineering</asp:ListItem>
-                  <asp:ListItem Value="MA"> Mathematics </asp:ListItem>
-             <asp:ListItem Value="AI"> Artificial Intelligence </asp:ListItem>
-             <asp:ListItem Value="TC">Theoritical Computer Science </asp:ListItem>
-             <asp:ListItem Value="CN"> Computer Networks </asp:ListItem>
-             <asp:ListItem Value="IS"> Information Systems </asp:ListItem>
-             <asp:ListItem Value="AL"> Algebra </asp:ListItem>
-             <asp:ListItem Value="CP"> Computational Physics </asp:ListItem>
+        <asp:DropDownList ID="DropDownList2" runat="server" >
+            
              
 
         </asp:DropDownList>
@@ -65,6 +56,9 @@
             <asp:Label ID="OutputLabel" runat="server" Text="Label" Font-Names="Consolas" Font-Size="Small"></asp:Label>
 
             </div>
+      
+        
+
       
         
 

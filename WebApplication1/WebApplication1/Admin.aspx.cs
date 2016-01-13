@@ -13,9 +13,11 @@ namespace WebApplication1
     {
         static List<string> keywords=new List<string>();
        static string source=Searcher.Springer.ComputerScience;
+        
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             OutputLabel.Text = "";
         }
 
@@ -27,13 +29,28 @@ namespace WebApplication1
 
             setValues();
 
-            keywords=JournalLinks.FromSpringer(source,GetDepth());
+            if (DropDownList1.SelectedValue == "Springer")
+                keywords = JournalLinks.FromSpringer(source, GetDepth());
+            else if (DropDownList1.SelectedValue == "ACM")
+                keywords = JournalLinks.FromACM(source, GetDepth());
+            else
+                OutputLabel.Text ="Error occurred";
 
-            foreach (string word in keywords)
-            {
-                OutputLabel.Text += "<br>"+word;
-            
-            }
+
+
+                try
+                {
+                    foreach (string word in keywords)
+                    {
+                        OutputLabel.Text += "<br>" + word;
+
+                    }
+                }
+                catch (Exception ecs)
+                { 
+                
+                
+                }
         }
 
        
@@ -155,6 +172,68 @@ namespace WebApplication1
                 DataManager.SetData(TableNames.Springer.TheoriticalComputerScience, keywords);
 
             }
+            if (source == Searcher.ACM.AI)
+            {
+
+                DataManager.SetData(TableNames.ACM.AI, keywords);
+
+
+            }
+            if (source == Searcher.ACM.ComputerGraphics)
+            {
+
+                DataManager.SetData(TableNames.ACM.ComputerGraphics, keywords);
+
+
+            }
+            if (source == Searcher.ACM.ComputerNetworks)
+            {
+
+                DataManager.SetData(TableNames.ACM.ComputerNetworks, keywords);
+
+
+            }
+            if (source == Searcher.ACM.ComputerVision)
+            {
+
+                DataManager.SetData(TableNames.ACM.ComputerVision, keywords);
+
+
+            }
+            if (source == Searcher.ACM.DistributedDatabase)
+            {
+
+                DataManager.SetData(TableNames.ACM.DistributedDatabase, keywords);
+
+
+            }
+            if (source == Searcher.ACM.ParallelComputing)
+            {
+
+                DataManager.SetData(TableNames.ACM.ParallelComputing, keywords);
+
+
+            }
+            if (source == Searcher.ACM.SoftwareEngineering)
+            {
+
+                DataManager.SetData(TableNames.ACM.SoftwareEngineering, keywords);
+
+
+            }
+            if (source == Searcher.ACM.TheoryOfComputerScience)
+            {
+
+                DataManager.SetData(TableNames.ACM.TheoryOfComputerScience, keywords);
+
+
+            }
+            if (source == Searcher.ACM.CloudComputing)
+            {
+
+                DataManager.SetData(TableNames.ACM.CloudComputing, keywords);
+
+            }
 
 
         }
@@ -218,6 +297,70 @@ namespace WebApplication1
                 tempList = DataManager.GetData(TableNames.Springer.TheoriticalComputerScience);
 
             }
+            if (source == Searcher.ACM.AI)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.AI);
+
+
+            }
+            if (source == Searcher.ACM.ComputerGraphics)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.ComputerGraphics);
+
+
+            }
+            if (source == Searcher.ACM.ComputerNetworks)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.ComputerNetworks);
+
+
+            }
+            if (source == Searcher.ACM.ComputerVision)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.ComputerVision);
+
+
+            }
+            if (source == Searcher.ACM.DistributedDatabase)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.DistributedDatabase);
+
+
+            }
+            if (source == Searcher.ACM.ParallelComputing)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.ParallelComputing);
+
+
+            }
+            if (source == Searcher.ACM.SoftwareEngineering)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.SoftwareEngineering);
+
+
+            }
+            if (source == Searcher.ACM.TheoryOfComputerScience)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.TheoryOfComputerScience);
+
+
+            }
+            if (source == Searcher.ACM.CloudComputing)
+            {
+
+                tempList = DataManager.GetData(TableNames.ACM.CloudComputing);
+
+
+            }
+
             return tempList;
         
         }
@@ -277,49 +420,65 @@ namespace WebApplication1
 
                 }
 
-            }
-            if (DropDownList1.SelectedValue == "IEEE")
-            {
-                if (DropDownList2.SelectedValue == "CS")
-                {
-
-                    source = Searcher.IEEE.ComputerScience;
-
-                }
-                if (DropDownList2.SelectedValue == "MA")
-                {
-
-                    source = Searcher.IEEE.Mathematics;
-
-                }
-                if (DropDownList2.SelectedValue == "EN")
-                {
-
-                    source = Searcher.IEEE.Engineering;
-
-                }
-
-            }
+            }           
             if (DropDownList1.SelectedValue == "ACM")
             {
-                if (DropDownList2.SelectedValue == "CS")
+                if (DropDownList2.SelectedValue == "AI")
                 {
 
-                    source = Searcher.ACM.ComputerScience;
+                    source = Searcher.ACM.AI;
 
                 }
-                if (DropDownList2.SelectedValue == "MA")
+                if (DropDownList2.SelectedValue == "SE")
                 {
 
-                    source = Searcher.ACM.Mathematics;
+                    source = Searcher.ACM.SoftwareEngineering;
 
                 }
-                if (DropDownList2.SelectedValue == "EN")
+                if (DropDownList2.SelectedValue == "CN")
                 {
 
-                    source = Searcher.ACM.Engineering;
+                    source = Searcher.ACM.ComputerNetworks;
 
                 }
+                if (DropDownList2.SelectedValue == "CC")
+                {
+
+                    source = Searcher.ACM.CloudComputing;
+
+                }
+                if (DropDownList2.SelectedValue == "CG")
+                {
+
+                    source = Searcher.ACM.ComputerGraphics;
+
+                }
+                if (DropDownList2.SelectedValue == "DD")
+                {
+
+                    source = Searcher.ACM.DistributedDatabase;
+
+                }
+                if (DropDownList2.SelectedValue == "TC")
+                {
+
+                    source = Searcher.ACM.TheoryOfComputerScience;
+
+                }
+                if (DropDownList2.SelectedValue == "PC")
+                {
+
+                    source = Searcher.ACM.ParallelComputing;
+
+                }
+                if (DropDownList2.SelectedValue == "CV")
+                {
+
+                    source = Searcher.ACM.ComputerVision;
+
+                }
+
+
 
             }
 
@@ -328,8 +487,43 @@ namespace WebApplication1
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            
+
+            if (DropDownList1.SelectedValue == "Springer")
+            {
+                // set dropDown list2 options
+                DropDownList2.Items.Clear();
+                DropDownList2.Items.Add(new ListItem("Discipline","SD",true));
+
+                DropDownList2.Items.Add(new ListItem("Computer Science","CS"));
+                DropDownList2.Items.Add(new ListItem("Engineering", "EN"));
+                DropDownList2.Items.Add(new ListItem("Mathematics", "MA"));
+                DropDownList2.Items.Add(new ListItem("Artificial Intelligence", "AI"));
+                DropDownList2.Items.Add(new ListItem("Computer Networks", "CN"));
+                DropDownList2.Items.Add(new ListItem("Information Systems", "IS"));
+                DropDownList2.Items.Add(new ListItem("Theoritical Computer Science", "TC"));
+                DropDownList2.Items.Add(new ListItem("Algebra", "AL"));
+                DropDownList2.Items.Add(new ListItem("Computational Physics", "CP"));
+
+            }
+            else if (DropDownList1.SelectedValue == "ACM")
+            {
+                // set dropDown list2 options
+                DropDownList2.Items.Clear();
+                DropDownList2.Items.Add(new ListItem("Discipline", "SD", true));
+
+                DropDownList2.Items.Add(new ListItem("Artificial Intelligence", "AI"));
+                DropDownList2.Items.Add(new ListItem("Software Engineering", "SE"));
+                DropDownList2.Items.Add(new ListItem("Computer Networks", "CN"));
+                DropDownList2.Items.Add(new ListItem("Cloud Computing", "CC"));
+                DropDownList2.Items.Add(new ListItem("Computer Graphics", "CG"));
+                DropDownList2.Items.Add(new ListItem("Distributed Database", "DD"));
+                DropDownList2.Items.Add(new ListItem("Theoritical Computer Science", "TC"));
+                DropDownList2.Items.Add(new ListItem("Parallel Computing", "PC"));
+                DropDownList2.Items.Add(new ListItem("Computer Vision", "CV"));
+
+            }
+
+
             
             
         }

@@ -26,27 +26,10 @@ namespace WebApplication1
 		//test commit
 		
 		}
-		public class IEEE
-        {
-            public static int page;
-            public static string ComputerScience ;
-            public static string AI = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(artificial%20intelligence)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string ComputerNetworks = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Computer%20Networks)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string SoftwareEngineering = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Software%20engineering)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string TheoryOfComputerScience = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Theory%20of%20Computer%20Science)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string ComputerGraphics = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Computer%20Graphics)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string CloudComputing = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(cloud%20computing)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string DistributedDatabase = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Distributed%20Database)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string ParallelComputing = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(Parallel%20Computing)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-            public static string ComputerVision = "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=(computer%20vision)&refinements=4294967269&refinements=4291944245&matchBoolean=true&pageNumber="+page+"&searchField=Search_All";
-
-        }
         public class ACM
         {
             public static int page;
-            public static string ComputerScience ;
-            public static string Engineering ;
-            public static string Mathematics ;
+            
             public static string AI = "http://dl.acm.org/results.cfm?query=%28%252Bartificial%20%252Bintelligence%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
             public static string SoftwareEngineering = "http://dl.acm.org/results.cfm?query=%28%252Bsoftware%20%252Bengineering%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
             public static string TheoryOfComputerScience = "http://dl.acm.org/results.cfm?query=%28%252BTheory%20%252Bof%20%252Bcomputer%20%252Bscience%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
@@ -55,7 +38,7 @@ namespace WebApplication1
             public static string ParallelComputing = "http://dl.acm.org/results.cfm?query=%28%252Bparallel%20%252Bcomputing%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
             public static string DistributedDatabase = "http://dl.acm.org/results.cfm?query=%28%252Bdistributed%20%252Bdatabase%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
             public static string ComputerVision = "http://dl.acm.org/results.cfm?query=%28%252Bcomputer%20%252Bvision%29&start="+page*20+"&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
-
+            public static string ComputerNetworks = "http://dl.acm.org/results.cfm?query=%28%252Bcomputer%20%252Bnetworks%29&start=" + page * 20 + "&filtered=&within=owners%2Eowner%3DACM&dte=&bfr=&srt=_score";
 
         }
 
