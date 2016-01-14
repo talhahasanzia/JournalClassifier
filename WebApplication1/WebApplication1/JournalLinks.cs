@@ -94,7 +94,7 @@ namespace WebApplication1
         }
 
 
-       public static List<string> FromIEEE(string source, int depth)
+       public static List<string> FromElsevier(string source, int depth)
        {
            FinalKeywords = new List<string>();
 
@@ -124,7 +124,7 @@ namespace WebApplication1
                var root = html.DocumentNode;
 
                // get element having class =title, which is juournal link node
-               var p = root.Descendants().Where(n => n.GetAttributeValue("class", "").Equals("ng-scope")).ToArray();
+               var p = root.Descendants().Where(n => n.GetAttributeValue("class", "").Equals("cLink artTitle S_C_artTitle")).ToArray();
 
 
                var nodes = p.ToArray();
@@ -139,10 +139,10 @@ namespace WebApplication1
                    {
 
                        // get HREF attribute of current node, because we need link
-                       HtmlAttribute link = node.FirstChild.Attributes["href"];
+                       HtmlAttribute link = node.Attributes["href"];
 
                        // create a proper link
-                       string temp = "http://ieeexplore.ieee.org" + link.Value;
+                       string temp =  link.Value;
                        Links.Add(temp);
 
                    }
@@ -155,30 +155,30 @@ namespace WebApplication1
 
                }
 
-               //// for each journal (link), get keywords
-               //foreach (string link in Links)
-               //{
-               //    // keywords returned as List of string
-               //    List<string> tempKeywords = KeywordExtractor.springer(link);
+               // for each journal (link), get keywords
+               foreach (string link in Links)
+               {
+                   // keywords returned as List of string
+                   List<string> tempKeywords = KeywordExtractor.Elsevier(link);
 
 
-               //    // when keyword is returned, check if that already exists in current bag
-               //    foreach (string keyword in tempKeywords)
-               //    {
+                   // when keyword is returned, check if that already exists in current bag
+                   foreach (string keyword in tempKeywords)
+                   {
 
-               //        // already is in current word group-bag
-               //        if (FinalKeywords.Contains(keyword))
-               //        { /* do nothing */ }
-               //        else    // not in word bag, so add
-               //        { FinalKeywords.Add(keyword); }
+                       // already is in current word group-bag
+                       if (FinalKeywords.Contains(keyword))
+                       { /* do nothing */ }
+                       else    // not in word bag, so add
+                       { FinalKeywords.Add(keyword); }
 
-               //        // do for each keyword
+                       // do for each keyword
 
-               //    }
+                   }
 
 
-               //    // do for each journal (link)
-               //}
+                   // do for each journal (link)
+               }
            }
 
        
