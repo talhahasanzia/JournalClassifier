@@ -36,5 +36,19 @@ namespace WebApplication1
             public static string TheoryOfComputerScience = "ACM_TCS";
             public static string CloudComputing = "ACM_CC";
         }
+
+        public class Elsevier
+        {
+
+            public static string AI = "Elsevier_AI";
+            public static string ComputerGraphics = "Elsevier_CG";
+            public static string ComputerNetworks = "Elsevier_CN";
+            public static string ComputerVision = "Elsevier_CV";
+            public static string DistributedDatabase = "Elsevier_DD";
+            public static string ParallelComputing = "Elsevier_PC";
+            public static string SoftwareEngineering = "Elsevier_SE";
+            public static string TheoryOfComputerScience = "Elsevier_TCS";
+            public static string CloudComputing = "Elsevier_CC";
+        }
     }
 }

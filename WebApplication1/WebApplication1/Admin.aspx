@@ -22,7 +22,7 @@
 
              <asp:ListItem Selected="True" Value="abc"> Website</asp:ListItem>
              <asp:ListItem  Value="Springer"> Springer </asp:ListItem>
-                  <asp:ListItem Value="IEEE"> IEEE</asp:ListItem>
+                  <asp:ListItem Value="Elsevier"> Elsevier</asp:ListItem>
                   <asp:ListItem Value="ACM"> ACM </asp:ListItem>
 
         </asp:DropDownList>

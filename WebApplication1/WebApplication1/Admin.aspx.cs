@@ -33,6 +33,9 @@ namespace WebApplication1
                 keywords = JournalLinks.FromSpringer(source, GetDepth());
             else if (DropDownList1.SelectedValue == "ACM")
                 keywords = JournalLinks.FromACM(source, GetDepth());
+            else if (DropDownList1.SelectedValue == "Elsevier")
+                keywords = JournalLinks.FromIEEE(source, GetDepth());
+
             else
                 OutputLabel.Text ="Error occurred";
 
@@ -420,7 +423,7 @@ namespace WebApplication1
 
                 }
 
-            }           
+            }
             if (DropDownList1.SelectedValue == "ACM")
             {
                 if (DropDownList2.SelectedValue == "AI")
@@ -477,12 +480,68 @@ namespace WebApplication1
                     source = Searcher.ACM.ComputerVision;
 
                 }
-
-
-
             }
+                if (DropDownList1.SelectedValue == "Elsevier")
+                {
+                    if (DropDownList2.SelectedValue == "AI")
+                    {
 
-        
+                        source = Searcher.Elsevier.AI;
+
+                    }
+                    if (DropDownList2.SelectedValue == "SE")
+                    {
+
+                        source = Searcher.Elsevier.SoftwareEngineering;
+
+                    }
+                    if (DropDownList2.SelectedValue == "CN")
+                    {
+
+                        source = Searcher.Elsevier.ComputerNetworks;
+
+                    }
+                    if (DropDownList2.SelectedValue == "CC")
+                    {
+
+                        source = Searcher.Elsevier.CloudComputing;
+
+                    }
+                    if (DropDownList2.SelectedValue == "CG")
+                    {
+
+                        source = Searcher.Elsevier.ComputerGraphics;
+
+                    }
+                    if (DropDownList2.SelectedValue == "DD")
+                    {
+
+                        source = Searcher.Elsevier.DistributedDatabase;
+
+                    }
+                    if (DropDownList2.SelectedValue == "TC")
+                    {
+
+                        source = Searcher.Elsevier.TheoryOfComputerScience;
+
+                    }
+                    if (DropDownList2.SelectedValue == "PC")
+                    {
+
+                        source = Searcher.Elsevier.ParallelComputing;
+
+                    }
+                    if (DropDownList2.SelectedValue == "CV")
+                    {
+
+                        source = Searcher.Elsevier.ComputerVision;
+
+                    }
+
+
+
+                
+            }       
         
         }
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -523,9 +582,26 @@ namespace WebApplication1
 
             }
 
+            else if (DropDownList1.SelectedValue == "Elsevier")
+            {
+                // set dropDown list2 options
+                DropDownList2.Items.Clear();
+                DropDownList2.Items.Add(new ListItem("Discipline", "SD", true));
 
-            
-            
+                DropDownList2.Items.Add(new ListItem("Artificial Intelligence", "AI"));
+                DropDownList2.Items.Add(new ListItem("Software Engineering", "SE"));
+                DropDownList2.Items.Add(new ListItem("Computer Networks", "CN"));
+                DropDownList2.Items.Add(new ListItem("Cloud Computing", "CC"));
+                DropDownList2.Items.Add(new ListItem("Computer Graphics", "CG"));
+                DropDownList2.Items.Add(new ListItem("Distributed Database", "DD"));
+                DropDownList2.Items.Add(new ListItem("Theoritical Computer Science", "TC"));
+                DropDownList2.Items.Add(new ListItem("Parallel Computing", "PC"));
+                DropDownList2.Items.Add(new ListItem("Computer Vision", "CV"));
+
+            }
+
+
+
         }
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
