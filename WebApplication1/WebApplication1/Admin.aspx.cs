@@ -34,7 +34,7 @@ namespace WebApplication1
             else if (DropDownList1.SelectedValue == "ACM")
                 keywords = JournalLinks.FromACM(source, GetDepth());
             else if (DropDownList1.SelectedValue == "Elsevier")
-                keywords = JournalLinks.FromIEEE(source, GetDepth());
+                keywords = JournalLinks.FromElsevier(source, GetDepth());
 
             else
                 OutputLabel.Text ="Error occurred";
@@ -94,24 +94,33 @@ namespace WebApplication1
             {
 
                 d = 1;
+                if (DropDownList1.SelectedValue == "Elsevier")
+                    d = 25;
+
 
             }
             else if (DropDownList3.SelectedValue == "x2")
             {
 
                 d = 2;
+                if (DropDownList1.SelectedValue == "Elsevier")
+                    d = 50;
 
             }
             else if (DropDownList3.SelectedValue == "x3")
             {
 
                 d = 3;
+                if (DropDownList1.SelectedValue == "Elsevier")
+                    d = 100;
 
             }
             else
             {
 
-                d = 1; ;
+                d = 1;
+                if (DropDownList1.SelectedValue == "Elsevier")
+                    d = 25; ;
             }
 
             return d;
@@ -235,6 +244,68 @@ namespace WebApplication1
             {
 
                 DataManager.SetData(TableNames.ACM.CloudComputing, keywords);
+
+            }
+            if (source == Searcher.Elsevier.AI)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.AI, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerGraphics)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.ComputerGraphics, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerNetworks)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.ComputerNetworks, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerVision)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.ComputerVision, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.DistributedDatabase)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.DistributedDatabase, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.ParallelComputing)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.ParallelComputing, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.SoftwareEngineering)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.SoftwareEngineering, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.TheoryOfComputerScience)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.TheoryOfComputerScience, keywords);
+
+
+            }
+            if (source == Searcher.Elsevier.CloudComputing)
+            {
+
+                DataManager.SetData(TableNames.Elsevier.CloudComputing, keywords);
 
             }
 
@@ -363,6 +434,69 @@ namespace WebApplication1
 
 
             }
+            if (source == Searcher.Elsevier.AI)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.AI);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerGraphics)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.ComputerGraphics);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerNetworks)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.ComputerNetworks);
+
+
+            }
+            if (source == Searcher.Elsevier.ComputerVision)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.ComputerVision);
+
+
+            }
+            if (source == Searcher.Elsevier.DistributedDatabase)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.DistributedDatabase);
+
+
+            }
+            if (source == Searcher.Elsevier.ParallelComputing)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.ParallelComputing);
+
+
+            }
+            if (source == Searcher.Elsevier.SoftwareEngineering)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.SoftwareEngineering);
+
+
+            }
+            if (source == Searcher.Elsevier.TheoryOfComputerScience)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.TheoryOfComputerScience);
+
+
+            }
+            if (source == Searcher.Elsevier.CloudComputing)
+            {
+
+                tempList = DataManager.GetData(TableNames.Elsevier.CloudComputing);
+
+
+            }
 
             return tempList;
         
@@ -424,7 +558,7 @@ namespace WebApplication1
                 }
 
             }
-            if (DropDownList1.SelectedValue == "ACM")
+            if (DropDownList1.SelectedValue == "Elsevier")
             {
                 if (DropDownList2.SelectedValue == "AI")
                 {
