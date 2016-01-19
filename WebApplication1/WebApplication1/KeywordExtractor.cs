@@ -11,11 +11,11 @@ namespace WebApplication1
 {
     public class KeywordExtractor
     {
-       public static List<string> springer(string uri)
+        public static List<string> springer(string uri)
         {
             List<string> springerkeywords = new List<string>();
             char[] trimmer = { ' ' };
-            char[] allTrimmer = { '\\', '(',')','/','<','>','=','"', };
+            char[] allTrimmer = { '\\', '(', ')', '/', '<', '>', '=', '"', };
             var html = new HtmlDocument();
 
             html.LoadHtml(new WebClient().DownloadString(uri)); // load a string web address
@@ -28,7 +28,7 @@ namespace WebApplication1
 
             var nodes = p.ToArray();
 
-            foreach(var node in nodes)
+            foreach (var node in nodes)
             {
 
                 string tempKeyword = node.InnerHtml;
@@ -37,7 +37,7 @@ namespace WebApplication1
                 tempKeyword = tempKeyword.TrimEnd(trimmer);
                 tempKeyword = tempKeyword.TrimStart(trimmer);
                 tempKeyword = tempKeyword.Trim(allTrimmer);
-                
+
                 springerkeywords.Add(tempKeyword);     // add to list
                 System.Diagnostics.Debug.WriteLine(tempKeyword);
             }
@@ -71,18 +71,18 @@ namespace WebApplication1
 
 
 
-           
+
 
             foreach (var node in nodes)
             {
                 try
                 {
 
-                   string key;
+                    string key;
                     // get HREF attribute of current node, because we need link
-                  
 
-                   key = node.FirstChild.InnerText;
+
+                    key = node.FirstChild.InnerText;
                     ElsevierKeywords.Add(key);
 
                 }
@@ -160,5 +160,63 @@ namespace WebApplication1
         }
 
 
+        public static List<string> doaj(string url)
+        {
+            string datakeyword = "<p><strong>Publisher's keywords</strong>";
+            List<string> doaj = new List<string>();
+            string path = HttpContext.Current.Server.MapPath("~/App_Data/doaj.txt");
+            Stream writer = new FileStream(path, FileMode.Create);
+            writer.Close();
+
+            using (WebClient client = new WebClient())
+            {
+
+
+                try
+                {
+
+                    client.DownloadFile("https://doaj.org/toc/2158-3897", path);
+                }
+                catch (WebException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+
+                }
+
+
+
+                foreach (var line in File.ReadLines(path))
+                {
+
+                    if (line.Contains(datakeyword))
+                    {
+                        var colon = line.IndexOf(':');
+                        var less = line.LastIndexOf('<');
+                        var extract = line.Substring(colon, less - colon);
+                        var trimColon = extract.Trim(':');
+
+
+                        string[] split = trimColon.Split(',');
+
+                        foreach (string item in split)
+                        {
+                            doaj.Add(item.Trim(' '));
+
+                        }
+
+                        break;
+
+                    }
+
+                }
+
+              
+
+            }
+
+            return doaj;
+
+
+        }
     }
 }
